@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
+import MyMapComponent from './Map.js';
 import './App.css';
 
 const Home = () => (
   <div>
     <h2>Home</h2>
+    <MyMapComponent isMarkerShown />
   </div>
 );
 
