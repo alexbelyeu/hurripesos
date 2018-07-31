@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
+import lembo from './images/lembo.jpg';
 import MyMapComponent from './Map.js';
 import './App.css';
 
@@ -53,29 +53,29 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={lembo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to Hurripesos</h1>
           </header>
-          <div className="App-body">
-            <div className="App-sidebar">
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/topics">Topics</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="App-content">
-              <Route exact path="/" component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/topics" component={Topics} />
-            </div>
+          <nav className="App-nav">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/topics">Topics</Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="App-content">
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/topics" component={Topics} />
           </div>
+          <aside className="App-sidebar">Sidebar</aside>
+          <footer className="App-footer">Hurripesos™ 2018</footer>
         </div>
       </Router>
     );
