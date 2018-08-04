@@ -1,6 +1,9 @@
-body {
+* {
   margin: 0;
   padding: 0;
+}
+
+body {
   height: 100vh;
   width: 100vw;
   font-family: sans-serif;
@@ -8,4 +11,9 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+label {
+  display: block;
+  margin: 5px 0;
 }

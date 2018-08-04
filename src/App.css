@@ -1,3 +1,8 @@
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
 .App {
   height: 100vh;
   display: grid;
@@ -5,8 +10,8 @@
   grid-template-areas:
     'header'
     'nav'
-    'content'
     'sidebar'
+    'content'
     'footer';
   grid-template-rows: 200px 1fr 4fr 1fr auto;
 }
@@ -40,7 +45,6 @@
 
 .App-sidebar {
   grid-area: sidebar;
-  display: none;
 }
 
 .App-footer {
@@ -70,13 +74,6 @@
       'footer  footer';
     grid-template-rows: 200px 50px 1fr auto;
   }
-  nav ul {
-    display: flex;
-    justify-content: space-between;
-  }
-  .App-sidebar {
-    display: initial;
-  }
 }
 
 @media (min-width: 700px) {
@@ -87,9 +84,13 @@
       'nav    content sidebar'
       'nav    content sidebar'
       'footer footer  footer';
-    grid-template-rows: 200px 1fr auto;
+    grid-template-rows: 200px auto auto min-content;
   }
   nav ul {
     flex-direction: column;
+    margin-left: 10px;
+  }
+  li {
+    margin-bottom: 5px;
   }
 }
