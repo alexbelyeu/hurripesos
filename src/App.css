@@ -13,7 +13,7 @@ nav ul {
     'sidebar'
     'content'
     'footer';
-  grid-template-rows: 200px 1fr 4fr 1fr auto;
+  grid-template-rows: 200px min-content 1fr 4fr auto;
 }
 
 .App-header {
@@ -36,7 +36,6 @@ nav ul {
 
 .App-nav {
   grid-area: nav;
-  /* padding-top: 20px; */
 }
 
 .App-content {
