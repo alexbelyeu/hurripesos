@@ -4,17 +4,12 @@ import lembo from './images/lembo.jpg';
 import Map from './components/Map.js';
 import Sidebar from './components/Sidebar.js';
 import './App.css';
+import PersonTracker from './components/PersonTracker';
 
 const Home = () => (
   <div>
     <h2>Home</h2>
     <Map isMarkerShown />
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
   </div>
 );
 
@@ -66,14 +61,14 @@ class App extends Component {
                 <Link to="/topics">Topics</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/persontracker">Person Tracker</Link>
               </li>
             </ul>
           </nav>
           <div className="App-content">
             <Route exact path="/" component={Home} />
             <Route path="/topics" component={Topics} />
-            <Route path="/about" component={About} />
+            <Route path="/persontracker" component={PersonTracker} />
           </div>
           <aside className="App-sidebar">
             <Sidebar />
