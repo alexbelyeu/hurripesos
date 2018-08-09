@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import lembo from './images/lembo.jpg';
-import Map from './components/Map.js';
 import Sidebar from './components/Sidebar.js';
-import './App.css';
 import PersonTracker from './components/PersonTracker';
-
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-    <Map isMarkerShown />
-  </div>
-);
+import Home from './components/Home';
+import './App.css';
 
 const Topics = ({ match }) => (
   <div>
@@ -59,9 +52,6 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/topics">Topics</Link>
-              </li>
-              <li>
-                <Link to="/persontracker">Person Tracker</Link>
               </li>
             </ul>
           </nav>
