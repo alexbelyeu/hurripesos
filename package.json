@@ -25,13 +25,12 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "react-app-env start",
-    "build": "react-app-env build",
-    "test": "react-app-env test --env=jsdom",
-    "eject": "react-app-env eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint-plugin-prettier": "^2.6.2",
-    "react-app-env": "^1.2.2"
+    "eslint-plugin-prettier": "^2.6.2"
   }
 }
