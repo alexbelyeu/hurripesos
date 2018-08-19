@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import lembo from './images/lembo.jpg';
+import styled from 'styled-components';
+import './App.css';
 import Sidebar from './components/Sidebar.js';
 import PersonTracker from './components/PersonTracker';
 import Home from './components/Home';
-import './App.css';
+import Search from './components/Search';
+import lembo from './images/lembo.jpg';
+
+const Logo = styled.div`
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SearchBar = styled.div`
+  position: relative;
+  z-index: 1;
+  float: left;
+  left: 10px;
+  width: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
 
 const Topics = ({ match }) => (
   <div>
@@ -42,8 +65,13 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src={lembo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to Hurripesos</h1>
+            <SearchBar>
+              <Search />
+            </SearchBar>
+            <Logo id="logo">
+              <img src={lembo} className="App-logo" alt="logo" />
+              <h1 className="App-title">hurripesos</h1>
+            </Logo>
           </header>
           <nav className="App-nav">
             <ul>
@@ -63,7 +91,7 @@ class App extends Component {
           <aside className="App-sidebar">
             <Sidebar />
           </aside>
-          <footer className="App-footer">Hurripesos™ 2018</footer>
+          <footer className="App-footer">2018© hurripesos</footer>
         </div>
       </Router>
     );

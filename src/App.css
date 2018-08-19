@@ -13,25 +13,25 @@ nav ul {
     'sidebar'
     'content'
     'footer';
-  grid-template-rows: 150px min-content 1fr 4fr auto;
+  grid-template-rows: 50px min-content 1fr 4fr auto;
 }
 
 .App-header {
   grid-area: header;
-  text-align: center;
   background-color: #222;
-  padding: 20px;
   color: white;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 1.5em;
   border-radius: 50%;
 }
 
 .App-title {
   font-size: 1.5em;
+  font-weight: lighter;
+  margin-left: 5px;
 }
 
 .App-nav {
@@ -71,7 +71,7 @@ nav ul {
       'nav     nav'
       'sidebar content'
       'footer  footer';
-    grid-template-rows: 150px 50px 1fr auto;
+    grid-template-rows: 50px 50px 1fr auto;
   }
 }
 
@@ -83,7 +83,7 @@ nav ul {
       'nav    content sidebar'
       'nav    content sidebar'
       'footer footer  footer';
-    grid-template-rows: 150px auto auto min-content;
+    grid-template-rows: 50px auto auto min-content;
   }
   nav ul {
     flex-direction: column;
