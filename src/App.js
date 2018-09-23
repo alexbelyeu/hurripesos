@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaBars, FaExclamationTriangle, FaHome, FaTimes } from 'react-icons/fa';
 import './App.css';
-import Sidebar from './components/Sidebar.js';
 import PersonTracker from './components/PersonTracker';
 import Home from './components/Home';
 import Search from './components/Search';
@@ -18,20 +18,9 @@ const Logo = styled.div`
   align-items: center;
 `;
 
-const SearchBar = styled.div`
-  position: relative;
-  z-index: 1;
-  float: left;
-  left: 10px;
-  width: 0%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
-
-const Topics = ({ match }) => (
+const Emergency = ({ match }) => (
   <div>
-    <h2>Topics</h2>
+    <h2>Emergency</h2>
     <ul>
       <li>
         <Link to={`${match.url}/rendering`}>Rendering with React</Link>
@@ -60,37 +49,68 @@ const Topic = ({ match }) => (
 );
 
 class App extends Component {
+  constructor() {
+    super();
+    this.openNav = this.openNav.bind(this);
+    this.closeNav = this.closeNav.bind(this);
+  }
+
+  openNav() {
+    const navElement = document.getElementsByClassName('App-nav')[0];
+    navElement.classList.add('open-nav');
+  }
+
+  closeNav() {
+    const navElement = document.getElementsByClassName('App-nav')[0];
+    navElement.classList.remove('open-nav');
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
           <header className="App-header">
-            <SearchBar>
-              <Search />
-            </SearchBar>
-            <Logo id="logo">
-              <img src={lembo} className="App-logo" alt="logo" />
-              <h1 className="App-title">hurripesos</h1>
-            </Logo>
+            <div className="App-nav-menu-button" onClick={this.openNav}>
+              <FaBars />
+            </div>
+            <Link to="/">
+              <Logo id="logo">
+                <img src={lembo} className="App-logo" alt="logo" />
+                <h1 className="App-title">hurripesos</h1>
+              </Logo>
+            </Link>
           </header>
           <nav className="App-nav">
+            <div className="App-nav-close-button" onClick={this.closeNav}>
+              <FaTimes />
+            </div>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <div>
+                  <Search />
+                </div>
               </li>
               <li>
-                <Link to="/topics">Topics</Link>
+                <Link to="/" onClick={this.closeNav}>
+                  <div>
+                    <FaHome /> Home
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/emergency" onClick={this.closeNav}>
+                  <div>
+                    <FaExclamationTriangle /> Emergency
+                  </div>
+                </Link>
               </li>
             </ul>
           </nav>
           <div className="App-content">
             <Route exact path="/" component={Home} />
-            <Route path="/topics" component={Topics} />
+            <Route path="/emergency" component={Emergency} />
             <Route path="/persontracker" component={PersonTracker} />
           </div>
-          <aside className="App-sidebar">
-            <Sidebar />
-          </aside>
           <footer className="App-footer">2018© hurripesos</footer>
         </div>
       </Router>

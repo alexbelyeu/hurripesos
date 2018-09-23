@@ -11,13 +11,13 @@ const nameList = [
   { name: 'Gabe LaFontant' },
   { name: 'Dan Brady' },
 ];
-const SearchIcon = styled(FaSearch)`
+const SearchElement = styled.div`
   cursor: pointer;
 `;
 const Menu = styled.div`
   position: absolute;
+  z-index: 1;
   box-sizing: border-box;
-  width: max-content;
   border: 1px solid #cccccc;
   background-color: white;
 `;
@@ -53,6 +53,11 @@ class Search extends React.Component {
     });
   }
 
+  closeNav() {
+    const navElement = document.getElementsByClassName('App-nav')[0];
+    navElement.classList.remove('open-nav');
+  }
+
   handleSearchClick() {
     this.setState({ searchButtonClicked: true });
   }
@@ -61,6 +66,7 @@ class Search extends React.Component {
     // Search for person's info through API and redirect to /persontracker
     event.preventDefault();
     this.input.blur();
+    this.closeNav();
     this.setState(prevState => {
       if (prevState.names.length !== 0) {
         return { fireRedirect: true };
@@ -69,7 +75,6 @@ class Search extends React.Component {
   }
 
   render() {
-    const logo = document.getElementById('logo');
     const { from } = this.props.location.state || '/';
     const { fireRedirect, searchButtonClicked, value } = this.state;
     return (
@@ -83,11 +88,7 @@ class Search extends React.Component {
                 autoFocus: true,
                 id: 'names-autocomplete',
                 onBlur: () => {
-                  logo.style.opacity = '1';
                   this.setState({ searchButtonClicked: false });
-                },
-                onFocus: () => {
-                  logo.style.opacity = '0.2';
                 },
               }}
               items={this.state.names}
@@ -136,7 +137,9 @@ class Search extends React.Component {
             <input hidden type="submit" value="" />
           </form>
         ) : (
-          <SearchIcon onClick={this.handleSearchClick} />
+          <SearchElement onClick={this.handleSearchClick}>
+            <FaSearch /> Search
+          </SearchElement>
         )}
         {fireRedirect && (
           <Redirect

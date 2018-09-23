@@ -121,7 +121,7 @@ const list = [
 const Element = ({ element }) => <div>{element}</div>;
 
 const Row = styled.div`
-  background-color: ${props => (props.index ? `#ff${props.index}` : '#ff0')};
+  background-color: ${props => (props.index ? `#da${props.index}` : '#da0')};
 `;
 
 function rowRenderer({
