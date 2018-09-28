@@ -18,6 +18,10 @@ const Logo = styled.div`
   align-items: center;
 `;
 
+const ListElement = styled.div`
+  color: black;
+`;
+
 const Emergency = ({ match }) => (
   <div>
     <h2>Emergency</h2>
@@ -86,22 +90,22 @@ class App extends Component {
             </div>
             <ul>
               <li>
-                <div>
+                <ListElement>
                   <Search />
-                </div>
+                </ListElement>
               </li>
               <li>
                 <Link to="/" onClick={this.closeNav}>
-                  <div>
+                  <ListElement>
                     <FaHome /> Home
-                  </div>
+                  </ListElement>
                 </Link>
               </li>
               <li>
                 <Link to="/emergency" onClick={this.closeNav}>
-                  <div>
+                  <ListElement>
                     <FaExclamationTriangle /> Emergency
-                  </div>
+                  </ListElement>
                 </Link>
               </li>
             </ul>
