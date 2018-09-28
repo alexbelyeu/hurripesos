@@ -19,7 +19,7 @@ const Menu = styled.div`
   z-index: 1;
   box-sizing: border-box;
   border: 1px solid #cccccc;
-  background-color: white;
+  background-color: #f2fff7;
 `;
 const Item = styled.div`
   color: black;
@@ -27,8 +27,8 @@ const Item = styled.div`
   cursor: pointer;
 `;
 const HighlightedItem = styled(Item)`
-  color: white;
-  background-color: #4095bf;
+  color: #f2fff7;
+  background-color: cadetblue;
 `;
 
 class Search extends React.Component {

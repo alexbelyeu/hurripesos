@@ -1,9 +1,25 @@
+/*
+Color palette
+{
+  "0": "#f2fff7",
+  "10": "#6df7ab",
+  "20": "#13e498",
+  "30": "#00bdbc",
+  "40": "#004f87"
+}
+*/
+
 a {
-  color: #222;
+  color: #004f87;
   text-decoration: none;
 }
 nav ul {
   position: fixed;
+}
+nav ul li {
+  line-height: 2.5;
+  font-size: 1.4rem;
+  margin-left: 10px;
 }
 input {
   font-size: 1rem;
@@ -14,10 +30,8 @@ input {
   height: 100vh;
 }
 .App > * {
-  color: #353535;
   font-size: 1.2rem;
   line-height: 1.5;
-  background: #d0cfc5;
 }
 .App-header {
   grid-area: header;
@@ -26,8 +40,8 @@ input {
   width: 100%;
   height: 50px;
   z-index: 1;
-  background-color: #222;
-  color: white;
+  background-color: #004f87;
+  color: #f2fff7;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -35,13 +49,14 @@ input {
   border-radius: 50%;
 }
 .App-title {
-  color: white;
+  color: #f2fff7;
   font-size: 1.5rem;
   font-weight: lighter;
   margin-left: 5px;
 }
 .App-nav {
   grid-area: nav;
+  background-color: #00bdbc;
 }
 .App-content {
   grid-area: content;
@@ -51,8 +66,8 @@ input {
   grid-area: footer;
   display: flex;
   justify-content: center;
-  background-color: #222;
-  color: white;
+  background-color: #6df7ab;
+  color: #f2fff7;
 }
 
 @keyframes App-logo-spin {
@@ -68,8 +83,6 @@ input {
   nav ul {
     display: flex;
     flex-direction: column;
-    margin: 1.2rem;
-    font-size: 1.4rem;
   }
 
   .App {
@@ -146,21 +159,20 @@ input {
 
 @media (min-width: 700px) {
   nav ul {
+    width: auto;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
-  nav ul li {
-    padding: 10px;
-  }
 
   .App {
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 200px 700px 1fr;
     grid-template-areas:
-      'header header'
-      'nav    content'
-      'footer footer';
+      'header header header'
+      'nav    content null'
+      'footer footer footer';
     grid-template-rows: 50px 1fr 30px;
+    grid-gap: 10px;
   }
   .App-nav {
     display: flex;
@@ -171,5 +183,7 @@ input {
   }
   .App-nav-close-button {
     display: none;
+  }
+  .App-content {
   }
 }
